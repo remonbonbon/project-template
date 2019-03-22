@@ -1,11 +1,12 @@
 <template lang="pug">
-section
-  h1 ToDOリスト
-  NotificationPopup
-  TodoList(v-bind:todos=`[
-    { id: 1, task: 'テスト1', isCompleted: false },
-    { id: 2, task: 'テスト2', isCompleted: true },
-  ]`)
+main.pageContainer
+  section.pageContent
+    h1 ToDOリスト
+    NotificationPopup
+    TodoList(v-bind:todos=`[
+      { id: 1, task: 'テスト1', isCompleted: false },
+      { id: 2, task: 'テスト2', isCompleted: true },
+    ]`)
 </template>
 
 <script>
@@ -20,3 +21,14 @@ module.exports = {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.pageContainer {
+  display: flex;
+  justify-content: center;
+}
+.pageContent {
+  width: 100%;
+  max-width: 40rem;
+}
+</style>

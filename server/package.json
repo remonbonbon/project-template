@@ -2,7 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "node main.js"
+  },
   "dependencies": {
     "commons": "file:../commons",
     "express": "^4.16.4",

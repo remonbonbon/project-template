@@ -4,7 +4,9 @@ module.exports = {
     loaderOptions: {
       sass: {
         // 共通で使用するSCSS
-        data: `@import "@/scss/main.scss";`,
+        data: `
+        @import "@/scss/_variables.scss";
+        `,
       },
     },
   },

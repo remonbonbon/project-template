@@ -68,6 +68,7 @@ module.exports = {
   margin-left: 0.5rem;
   width: 100%;
   &.completed {
+    color: #888;
     text-decoration: line-through;
   }
   &_textbox {

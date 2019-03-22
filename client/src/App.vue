@@ -1,6 +1,22 @@
 <template lang="pug">
-  #app
-    router-view
+#app
+  CommonHeader
+  router-view
+  CommonFooter
 </template>
 
-<style lang="scss"></style>
+<script>
+const CommonHeader = require('./components/CommonHeader.vue').default;
+const CommonFooter = require('./components/CommonFooter.vue').default;
+
+module.exports = {
+  components: {
+    CommonHeader,
+    CommonFooter,
+  },
+};
+</script>
+
+<style lang="scss">
+@import './scss/reset.scss';
+</style>

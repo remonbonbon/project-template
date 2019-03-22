@@ -14,5 +14,5 @@ app.use(require('./routes/middleware/not-found-handler'));
 app.use(require('./routes/middleware/error-handler'));
 
 app.listen(config.server.port, () =>
-  logger.info(`listening on port ${config.server.port}`)
+  logger.info(`Start server http://localhost:${config.server.port}`)
 );
