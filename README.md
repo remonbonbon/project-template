@@ -6,9 +6,12 @@ Visual Studio Code
 
 ### 拡張機能 (必須)
 
-- GitLens
 - EditorConfig for VS Code
-- npm Intellisense
 - ESLint
 - Prettier - Code formatter
 - Vetur
+
+### 拡張機能 (推奨)
+
+- npm Intellisense
+- GitLens
