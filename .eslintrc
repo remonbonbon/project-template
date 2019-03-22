@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "rules": {
+    "eqeqeq": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "radix": "error",
+    "guard-for-in": "error",
+    "require-await": "error",
+    "no-shadow": "error",
+    "no-unused-vars": ["warn", {
+      "args": "none"
+    }],
+
+    "prettier/prettier": ["warn", {
+      "printWidth": 80,
+      "singleQuote": true,
+      "trailingComma": "es5"
+    }]
+  }
+}

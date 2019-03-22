@@ -1,0 +1,51 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: 1;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+  font-size: 100%;
+}
+
+label {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $border-color;
+}

@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "../.eslintrc"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "script"
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}

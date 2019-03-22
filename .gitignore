@@ -1,0 +1,5 @@
+tmp/*
+!.gitkeep
+
+.DS_Store
+node_modules

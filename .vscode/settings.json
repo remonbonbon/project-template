@@ -1,0 +1,24 @@
+{
+  // node_modulesディレクトリを無視
+  "files.exclude": {
+    "**/node_modules": true
+  },
+
+  // ESLintの設定
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+
+  // Prettierの設定
+  "prettier.eslintIntegration": true,
+  // 特定のファイルだけ保存時に(Prettierで)フォーマットする
+  "editor.formatOnSave": false,
+  "[scss]": {
+    "editor.formatOnSave": true
+  }
+}

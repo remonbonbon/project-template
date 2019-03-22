@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "plugin:vue/essential",
+    "@vue/prettier",
+    "../.eslintrc"
+  ],
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "ecmaVersion": 2017,
+    "sourceType": "script"
+  },
+  "env": {
+    "node": true
+  }
+}
