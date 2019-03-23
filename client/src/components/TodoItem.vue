@@ -1,11 +1,13 @@
 <script>
+const _ = require('lodash');
+
 module.exports = {
   props: {
     id: String,
     task: String,
     isCompleted: Boolean,
   },
-  data: vm => {
+  data(vm) {
     return {
       input: {
         task: vm.task,
@@ -13,39 +15,47 @@ module.exports = {
       },
     };
   },
-  watch: {
-    'input.isCompleted': function(newValue, oldValue) {
-      if (newValue) {
-        this.$store.dispatch('notifications/add', {
-          level: 'info',
-          code: 'complete-task',
-          message: `タスク「${this.input.task}」が完了しました。`,
-        });
-      } else {
-        this.$store.dispatch('notifications/add', {
-          level: 'warn',
-          code: 'restart-task',
-          message: `タスク「${this.input.task}」を再開しました。`,
-        });
-      }
+  created: function() {
+    this.debouncedSave = _.debounce(this.save, 400);
+  },
+  methods: {
+    async save() {
+      await this.$store.dispatch('todos/update', {
+        id: this.id,
+        ...this.input,
+      });
+      this.$store.dispatch('notifications/add', {
+        level: 'info',
+        code: 'save-task',
+        message: `「${this.input.task}」を保存しました。`,
+      });
+    },
+    async remove() {
+      await this.$store.dispatch('todos/remove', this.id);
+      this.$store.dispatch('notifications/add', {
+        level: 'warn',
+        code: 'remove-task',
+        message: `「${this.input.task}」を削除しました。`,
+      });
     },
   },
-  methods: {},
 };
 </script>
 
 <template lang="pug">
 .todoItem
-  label.isCompleted
+  label.fixWidth
     input(type="checkbox"
+      v-on:change="save"
       v-model="input.isCompleted")
     span 完了
-  span {{ id }}
   span.task(v-bind:class="{completed: input.isCompleted}")
     span(v-if="input.isCompleted") {{ input.task }}
     input.task_textbox(type="text"
       v-if="!input.isCompleted"
+      v-on:input="debouncedSave"
       v-model="input.task")
+  button.fixWidth(v-on:click="remove") 削除
 </template>
 
 <style scoped lang="scss">
@@ -61,11 +71,11 @@ module.exports = {
     margin-top: 0.5rem;
   }
 }
-.isCompleted {
+.fixWidth {
   flex-shrink: 0;
 }
 .task {
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
   width: 100%;
   &.completed {
     color: #888;

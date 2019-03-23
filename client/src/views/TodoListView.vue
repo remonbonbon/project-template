@@ -3,10 +3,7 @@ main.pageContainer
   section.pageContent
     h1 ToDOリスト
     NotificationPopup
-    TodoList(v-bind:todos=`[
-      { id: 1, task: 'テスト1', isCompleted: false },
-      { id: 2, task: 'テスト2', isCompleted: true },
-    ]`)
+    TodoList
 </template>
 
 <script>

@@ -8,9 +8,9 @@ const db = new Datastore({
 });
 
 function makeAsync(funcName) {
-  return function(query) {
+  return function(...args) {
     return new Promise((resolve, reject) => {
-      db[funcName](query, function(err, results) {
+      db[funcName](...args, function(err, results) {
         if (err) {
           reject(err);
         } else {
@@ -21,4 +21,7 @@ function makeAsync(funcName) {
   };
 }
 
+module.exports.insert = makeAsync('insert');
 module.exports.find = makeAsync('find');
+module.exports.update = makeAsync('update');
+module.exports.remove = makeAsync('remove');

@@ -1,17 +1,20 @@
 // 時間経過で消える通知
 module.exports = {
   namespaced: true,
+
   // initial state
   state: {
     // [{ id, date, level, code, message }]
     notifications: [],
   },
+
   // getters
   getters: {
     notifications: (state, getters) => {
       return state.notifications;
     },
   },
+
   // actions
   actions: {
     // 通知を追加
@@ -32,6 +35,7 @@ module.exports = {
       commit('removeNotification', id);
     },
   },
+
   // mutations
   mutations: {
     // 通知を先頭に追加
